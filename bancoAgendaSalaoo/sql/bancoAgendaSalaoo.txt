@@ -1,0 +1,26 @@
+CREATE TABLE servicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_servico VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE agendamentos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_cliente VARCHAR(100) NOT NULL,
+    telefone_cliente VARCHAR(15),
+    data_agendamento DATE NOT NULL,
+    horario_agendamento TIME NOT NULL,
+    id_servico INT,
+    FOREIGN KEY (id_servico) REFERENCES servicos(id)
+);
+
+CREATE TABLE secretarias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    login VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
